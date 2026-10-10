@@ -1,0 +1,26 @@
+# Private reference material; not needed to build or publish the site.
+/prompt/
+
+# Local secrets and environment overrides.
+.env
+.env.*
+!.env.example
+*.local
+
+# Dependencies and generated output.
+/node_modules/
+/dist/
+/build/
+/coverage/
+
+# Editor and operating-system files.
+/.vscode/
+/.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs and temporary files.
+*.log
+*.tmp
+*.bak
