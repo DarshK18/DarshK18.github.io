@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fefefe">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+    >
     <meta
       name="description"
       content="Darshan Kedare builds practical AI applications across machine learning, generative AI, retrieval-augmented generation, and computer vision."
@@ -20,8 +25,8 @@
       <nav class="primary-nav" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#experience">Experience</a>
-        <a href="#about">About</a>
-        <a href="#credentials">Credentials</a>
+        <a href="#focus">Focus</a>
+        <a href="#courses">Courses &amp; Certificates</a>
         <a href="#contact">Contact</a>
       </nav>
       <a class="header-link" href="https://github.com/DarshK18" target="_blank" rel="noreferrer">
@@ -33,7 +38,10 @@
 
     <main id="top">
       <section class="hero section-shell" aria-labelledby="hero-title">
-        <canvas class="life-canvas" aria-hidden="true"></canvas>
+        <span class="hero-orbit" aria-hidden="true">
+          <span class="orbit-core"></span>
+          <span class="orbit-satellite"></span>
+        </span>
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-rule"></span> AI / MACHINE LEARNING</p>
           <h1 id="hero-title">Turning data into <span>intelligent</span> solutions.</h1>
@@ -73,7 +81,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow"><span class="eyebrow-rule"></span> SELECTED PROJECTS</p>
-            <h2 id="work-title">Work in progress<span class="accent-period">.</span></h2>
+            <h2 id="work-title">Work<span class="accent-period">.</span></h2>
           </div>
           <a class="text-link section-link" href="https://github.com/DarshK18?tab=repositories" target="_blank" rel="noreferrer">
             All repositories <span aria-hidden="true">↗</span>
@@ -239,57 +247,52 @@
         </article>
       </section>
 
-      <section class="about-section section-shell" id="about" aria-labelledby="about-title">
+      <section class="focus-section section-shell" id="focus" aria-labelledby="focus-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow"><span class="eyebrow-rule"></span> A LITTLE ABOUT ME</p>
-            <h2 id="about-title">Curious by nature.<br>Precise by design.</h2>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> HOW I BUILD</p>
+            <h2 id="focus-title">Areas of focus<span class="accent-period">.</span></h2>
           </div>
           <span class="section-glyph" aria-hidden="true">
-            <span class="dot-motif"></span>
             <span>∴</span>
           </span>
         </div>
-        <div class="about-content">
-          <div class="about-profile">
-            <p class="about-statement">
-              I’m passionate about transforming data into intelligent
-              solutions. My work spans machine learning, generative AI, LLMs,
-              RAG, prompt engineering, and deep learning—with a focus on
-              bringing AI research into practical applications.
-            </p>
-            <div class="profile-skills" aria-label="Areas and technologies">
-              <span>PYTHON</span><span>MACHINE LEARNING</span><span>COMPUTER VISION</span>
-              <span>NLP</span><span>TRANSFORMERS</span><span>RAG</span>
-              <span>LANGCHAIN</span><span>HUGGING FACE</span>
-            </div>
-          </div>
-          <div class="about-details">
-            <div class="focus-list">
-              <div><span>01</span><p>Retrieval &amp; grounded generation</p></div>
-              <div><span>02</span><p>LLM evaluation &amp; quality</p></div>
-              <div><span>03</span><p>Practical AI applications</p></div>
-            </div>
-            <div class="education-detail">
-              <span>EDUCATION</span>
-              <p>K.K. Wagh Institute of Engineering Education &amp; Research</p>
-            </div>
-          </div>
+        <div class="focus-grid">
+          <article class="focus-card">
+            <span class="focus-number">01 / RETRIEVAL</span>
+            <h3>Grounded generation</h3>
+            <p>Build RAG pipelines with retrieval and reranking to keep answers relevant and tied to source material.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">02 / EVALUATION</span>
+            <h3>LLM quality &amp; reliability</h3>
+            <p>Measure faithfulness, PII leakage, latency, and cost, then use regression checks to track changes.</p>
+          </article>
+          <article class="focus-card">
+            <span class="focus-number">03 / APPLICATIONS</span>
+            <h3>Useful AI systems</h3>
+            <p>Turn models and agent workflows into practical tools across generative AI, MCP, and computer vision.</p>
+          </article>
         </div>
-        <div class="social-links">
-          <a href="https://github.com/DarshK18" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-          <a href="https://www.linkedin.com/in/darshan-kedare-465964253/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <div class="focus-footer">
+          <div class="education-detail">
+            <span>EDUCATION</span>
+            <p>K.K. Wagh Institute of Engineering Education &amp; Research</p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/DarshK18" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/darshan-kedare-465964253/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </section>
 
-      <section class="credentials-section section-shell" id="credentials" aria-labelledby="credentials-title">
+      <section class="credentials-section section-shell" id="courses" aria-labelledby="courses-title">
         <div class="section-heading">
           <div>
             <p class="eyebrow"><span class="eyebrow-rule"></span> CONTINUOUS LEARNING</p>
-            <h2 id="credentials-title">Courses &amp; certificates<span class="accent-period">.</span></h2>
+            <h2 id="courses-title">Courses &amp; certificates<span class="accent-period">.</span></h2>
           </div>
           <span class="section-glyph" aria-hidden="true">
-            <span class="dot-motif"></span>
             <span>∴</span>
           </span>
         </div>
@@ -378,7 +381,7 @@
 
     <footer class="site-footer section-shell">
       <a class="wordmark footer-wordmark" href="#top" aria-label="Back to top">DK<span class="wordmark-period">.</span></a>
-      <p class="footer-note">DESIGNED WITH INTENT / BUILT TO KEEP LEARNING</p>
+      <p class="footer-note">BUILDING WITH INTENT</p>
       <div class="footer-status">
         <span class="status-dot" aria-hidden="true"></span>
         <span>LOCAL TIME</span>
