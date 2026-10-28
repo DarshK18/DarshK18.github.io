@@ -29,11 +29,18 @@
         <a href="#courses">Courses &amp; Certificates</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a class="header-link" href="https://github.com/DarshK18" target="_blank" rel="noreferrer">
-        <span class="status-dot" aria-hidden="true"></span>
-        GitHub
-        <span aria-hidden="true">↗</span>
-      </a>
+      <div class="header-socials" aria-label="Social profiles">
+        <a class="header-link" href="https://github.com/DarshK18" target="_blank" rel="noreferrer">
+          <span class="status-dot" aria-hidden="true"></span>
+          GitHub
+          <span aria-hidden="true">↗</span>
+        </a>
+        <a class="header-link" href="https://www.linkedin.com/in/darshan-kedare-465964253/" target="_blank" rel="noreferrer">
+          <span class="status-dot" aria-hidden="true"></span>
+          LinkedIn
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </header>
 
     <main id="top">
@@ -45,11 +52,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-rule"></span> AI / MACHINE LEARNING</p>
           <h1 id="hero-title">Turning data into <span>intelligent</span> solutions.</h1>
-          <p class="hero-description">
-            I build practical AI applications across generative AI, grounded
-            retrieval, and computer vision—bridging complex ideas with useful
-            real-world solutions.
-          </p>
+          <p class="hero-description">I build practical AI systems, including a multi-agent research pipeline at YBI Foundation and tools for grounded, reliable AI.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
             <a class="text-link" href="mailto:darshankeadre1815@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
@@ -77,6 +80,28 @@
         </a>
       </section>
 
+      <section class="experience-section section-shell" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> EXPERIENCE</p>
+            <h2 id="experience-title">Applied AI, in practice<span class="accent-period">.</span></h2>
+          </div>
+        </div>
+        <article class="experience-card">
+          <div class="experience-meta">
+            <span class="experience-number">01</span>
+            <span class="experience-role">AI ENGINEER INTERN</span>
+          </div>
+          <div class="experience-details">
+            <h3>YBI Foundation</h3>
+            <p>Architected a five-node LangGraph pipeline to plan, research, and generate technical blog posts across research modes. Integrated Tavily Search for concurrent retrieval with ISO date-filtered evidence deduplication, and built a five-tab Streamlit dashboard with live node streaming and Gemini 1.5 Flash multimodal processing.</p>
+            <a class="text-link" href="https://github.com/DarshK18/InkForge" target="_blank" rel="noreferrer">Explore InkForge <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <span class="experience-period">SEP 2025 – MAR 2026</span>
+        </article>
+      </section>
+
       <section class="work-section section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <div>
@@ -101,8 +126,7 @@
               <div class="trace-line trace-line-b"></div>
               <span class="visual-label">RETRIEVE → RERANK → RESPOND</span>
             </div>
-            <h3>RAG Evaluation Workbench</h3>
-            <p>A grounded-answer pipeline with retrieval, cross-encoder reranking, and an evaluation suite for measuring answer quality.</p>
+            <h3>RAG Evaluation Workbench</h3><p>RAGGuard catches quality regressions before deployment with checks for faithfulness, PII leakage, toxicity, p95 latency, and cost per query. Offline evaluations compare golden datasets and baseline versus candidate runs.</p>
             <div class="tag-list" aria-label="Technologies">
               <span>CHROMA</span><span>DEEPEVAL</span><span>STREAMLIT</span>
             </div>
@@ -137,8 +161,7 @@
               <span class="sign-frame sign-frame-c"></span>
               <span class="sign-readout">HAND / LANDMARKS / TEXT</span>
             </div>
-            <h3>Sign Language Recognition</h3>
-            <p>A web app for real-time sign-to-text recognition, with tools to capture examples, train models, and translate text to signs.</p>
+            <h3>Real-Time Gesture-to-Text Accessibility System</h3><p>Recognizes 50+ hand gestures with 88% accuracy using a custom CNN trained on 2,000+ frames, with 92% detection under varied lighting. The Django app adds Google TTS and handled 200+ daily inputs at 150 ms latency in a 15+ user pilot.</p>
             <div class="tag-list" aria-label="Technologies">
               <span>MEDIAPIPE</span><span>OPENCV</span><span>TENSORFLOW</span>
             </div>
@@ -157,8 +180,7 @@
               <span class="mcp-pill">TOOLS</span>
               <span class="visual-label">A CONVERSATIONAL EXPENSE ASSISTANT</span>
             </div>
-            <h3>MCP Expense Chatbot</h3>
-            <p>A conversational expense assistant connecting a Streamlit interface to a local MCP backend over stdio.</p>
+            <h3>Expense Tracker MCP Agent</h3><p>A natural-language expense assistant that connects a FastMCP backend to Google Gemini through LangChain MCP adapters over stdio. SQLite tools support expense entry, date-range retrieval, category summaries, and chat history.</p>
             <div class="tag-list" aria-label="Technologies">
               <span>MCP</span><span>PYTHON</span><span>STREAMLIT</span>
             </div>
@@ -219,34 +241,6 @@
         </div>
       </section>
 
-      <section class="experience-section section-shell" id="experience" aria-labelledby="experience-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-rule"></span> EXPERIENCE</p>
-            <h2 id="experience-title">Applied AI, in practice<span class="accent-period">.</span></h2>
-          </div>
-        </div>
-        <article class="experience-card">
-          <div class="experience-meta">
-            <span class="experience-number">01</span>
-            <span class="experience-role">AI / ML INTERN</span>
-          </div>
-          <div class="experience-details">
-            <h3>YBI Foundation</h3>
-            <p>
-              Built applied generative-AI systems, including a five-node
-              LangGraph multi-agent pipeline and RAGGuard, a RAG evaluation and
-              regression-testing workbench covering faithfulness, PII leakage,
-              latency, and cost per query.
-            </p>
-            <a class="text-link" href="https://github.com/DarshK18/Ragguard-deepeval-workbench" target="_blank" rel="noreferrer">
-              Explore RAGGuard <span aria-hidden="true">↗</span>
-            </a>
-          </div>
-          <span class="experience-period">INTERNSHIP</span>
-        </article>
-      </section>
-
       <section class="focus-section section-shell" id="focus" aria-labelledby="focus-title">
         <div class="section-heading">
           <div>
@@ -277,7 +271,7 @@
         <div class="focus-footer">
           <div class="education-detail">
             <span>EDUCATION</span>
-            <p>K.K. Wagh Institute of Engineering Education &amp; Research</p>
+            <p>B.E. in Artificial Intelligence and Data Science, 2021–2025<br>K.K. Wagh Institute of Engineering Education &amp; Research, Nashik</p>
           </div>
           <div class="social-links">
             <a href="https://github.com/DarshK18" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
@@ -388,6 +382,7 @@
         <time id="live-clock" class="live-clock" aria-label="Current local time">--:--:--</time>
       </div>
       <span class="footer-copyright">© <span id="current-year"></span> DARSHAN KEDARE</span>
+      <a class="footer-copyright footer-resume" href="https://drive.google.com/file/d/17VynoHYuuc80HJX9ZwBjBG7s2COwHY3r/view?usp=sharing" target="_blank" rel="noreferrer">VIEW RESUME <span aria-hidden="true">↗</span></a>
     </footer>
   </body>
 </html>

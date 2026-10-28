@@ -150,6 +150,12 @@ a:focus-visible {
   font-size: 11px;
 }
 
+.header-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
 .status-dot {
   width: 7px;
   height: 7px;
@@ -169,8 +175,8 @@ a:focus-visible {
   align-items: center;
   gap: 64px;
   padding-block: 82px 108px;
-  background-image: radial-gradient(rgb(243 134 161 / 48%) 1.35px, transparent 1.5px);
-  background-size: 16px 16px;
+  background-image: radial-gradient(rgb(243 134 161 / 44%) 2px, transparent 2.2px);
+  background-size: 40px 40px;
   overflow: hidden;
 }
 
@@ -1017,7 +1023,7 @@ h1 span {
     grid-template-columns: 1fr;
     gap: 31px;
     padding-block: 65px 88px;
-    background-size: 14px 14px;
+    background-size: 40px 40px;
   }
 
   .hero-copy {
