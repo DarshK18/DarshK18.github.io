@@ -14,7 +14,7 @@
       content="Darshan Kedare builds practical AI applications across machine learning, generative AI, retrieval-augmented generation, and computer vision."
     >
     <title>Darshan Kedare — AI Engineer</title>
-    <link rel="stylesheet" href="styles.css?v=20261029-mobile3">
+    <link rel="stylesheet" href="styles.css?v=20261029-game1">
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -24,6 +24,7 @@
       </a>
       <nav class="primary-nav" aria-label="Main navigation">
         <a href="#work">Work</a>
+        <a href="#play">Play</a>
         <a href="#experience">Experience</a>
         <a href="#focus">Focus</a>
         <a href="#courses">Courses &amp; Certificates</a>
@@ -264,6 +265,52 @@
             </div>
             <a class="project-demo" href="https://benchwiki.vercel.app/" target="_blank" rel="noreferrer">Open BenchWiki <span aria-hidden="true">↗</span></a>
           </article>
+        </div>
+      </section>
+
+      <section class="play-section section-shell" id="play" aria-labelledby="play-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> A SMALL REASONING CHALLENGE</p>
+            <h2 id="play-title">Want to play a game<span class="accent-period">?</span></h2>
+          </div>
+          <a class="text-link section-link" href="https://arcprize.org/arc-agi/3" target="_blank" rel="noreferrer">
+            About ARC-AGI-3 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="signal-game" id="signal-game">
+          <div class="game-intro">
+            <span class="game-kicker">ORIGINAL MINI GAME / INSPIRED BY INTERACTIVE REASONING</span>
+            <h3>Signal path</h3>
+            <p>Explore the grid, collect all three signals, then reach the exit. Use arrow keys or the on-screen controls to move.</p>
+            <div class="game-stats" aria-label="Game progress">
+              <span id="game-level">STAGE 01 / 03</span>
+              <span id="game-moves">MOVES 00</span>
+              <span id="game-signals">SIGNALS 0 / 3</span>
+            </div>
+          </div>
+          <div class="game-play-area">
+            <div class="game-board" id="game-board" role="grid" tabindex="0" aria-label="Signal Path game grid. Use arrow keys to move."></div>
+            <div class="game-tools">
+              <p class="game-status" id="game-status" role="status" aria-live="polite">Collect the signals, then find the exit.</p>
+              <div class="game-actions">
+                <div class="game-pad" aria-label="Movement controls">
+                  <button type="button" data-move="up" aria-label="Move up">↑</button>
+                  <button type="button" data-move="left" aria-label="Move left">←</button>
+                  <button type="button" data-move="down" aria-label="Move down">↓</button>
+                  <button type="button" data-move="right" aria-label="Move right">→</button>
+                </div>
+                <button type="button" class="game-reset" id="game-reset">Restart stage</button>
+                <button type="button" class="game-reset game-next" id="game-next" hidden>Next stage <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </div>
+          <div class="game-legend" aria-label="Grid legend">
+            <span><i class="legend-player"></i> YOU</span>
+            <span><i class="legend-signal"></i> SIGNAL</span>
+            <span><i class="legend-exit"></i> EXIT</span>
+            <span><i class="legend-wall"></i> BLOCKED</span>
+          </div>
         </div>
       </section>
 
