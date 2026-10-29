@@ -1936,6 +1936,78 @@ h1 span {
   }
 }
 
+/* Keep labels and supporting copy readable across the portfolio. */
+.eyebrow {
+  font-size: 11px;
+}
+
+.project-toolbar > p,
+.project-filters button,
+.card-type,
+.project-topline,
+.visual-label,
+.ink-step,
+.sign-readout,
+.mcp-pill,
+.metric-label,
+.benchwiki-header,
+.segment,
+.tag-list span,
+.experience-meta,
+.experience-kind,
+.experience-period,
+.focus-number,
+.credential-toolbar > p,
+.credential-filters button,
+.credential-number,
+.credential-type,
+.credential-bottom,
+.game-kicker,
+.game-stats,
+.game-reset,
+.game-legend,
+.portrait-caption,
+.footer-note,
+.footer-status,
+.footer-copyright {
+  font-size: 10px;
+}
+
+.education-detail > span {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.education-detail p,
+.project-card > p,
+.experience-details p,
+.focus-card p {
+  font-size: 14px;
+}
+
+.game-intro p {
+  font-size: 15px;
+}
+
+.credential-name {
+  font-size: 16px;
+}
+
+.section-link {
+  font-size: 11px;
+}
+
+@media (max-width: 560px) {
+  .primary-nav {
+    font-size: 10px;
+  }
+
+  .header-link {
+    font-size: 9px;
+  }
+}
+
 
 .visually-hidden {
   width: 1px;
