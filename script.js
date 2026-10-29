@@ -93,12 +93,29 @@
     });
   }
 
+  const gameModeButtons = document.querySelectorAll("[data-game-mode]");
+  const gameModePanels = document.querySelectorAll("[data-game-panel]");
+  if (gameModeButtons.length && gameModePanels.length) {
+    gameModeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selectedMode = button.dataset.gameMode;
+        gameModeButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        gameModePanels.forEach((panel) => {
+          panel.hidden = panel.dataset.gamePanel !== selectedMode;
+        });
+      });
+    });
+  }
+
   const game = document.querySelector("#signal-game");
   if (game) {
     const levels = [
       { start: [0, 0], exit: [5, 5], signals: [[2, 1], [4, 1], [1, 4]], walls: [[1, 2], [3, 2], [4, 4]] },
       { start: [0, 5], exit: [5, 0], signals: [[1, 4], [3, 4], [4, 1]], walls: [[1, 5], [2, 3], [4, 3], [3, 1], [5, 2]] },
       { start: [0, 0], exit: [5, 5], signals: [[0, 3], [3, 1], [4, 4]], walls: [[1, 1], [2, 1], [2, 3], [4, 2], [1, 4], [3, 4]] },
+      { start: [0, 5], exit: [5, 0], signals: [[0, 3], [2, 4], [4, 1]], walls: [[1, 2], [2, 2], [3, 2], [3, 4], [4, 4]] },
+      { start: [5, 0], exit: [0, 5], signals: [[4, 2], [2, 4], [0, 3]], walls: [[1, 3], [2, 3], [3, 3], [3, 1], [4, 4], [1, 1]] },
+      { start: [0, 0], exit: [5, 5], signals: [[1, 1], [3, 3], [4, 5]], walls: [[1, 2], [2, 2], [3, 4], [4, 2], [2, 4], [1, 4], [4, 1]] },
     ];
     const board = game.querySelector("#game-board");
     const status = game.querySelector("#game-status");
@@ -211,6 +228,161 @@
       restart();
     });
     render();
+  }
+
+  const patternBoard = document.querySelector("#pattern-board");
+  if (patternBoard) {
+    const patterns = [
+      [0, 2, 1],
+      [1, 3, 0, 2],
+      [2, 0, 3, 1, 2],
+      [3, 1, 2, 0, 3, 1],
+      [0, 3, 1, 2, 0, 1, 3],
+      [2, 1, 3, 0, 2, 3, 1, 0],
+    ];
+    const keys = [...patternBoard.querySelectorAll("[data-pattern-tone]")];
+    const levelLabel = document.querySelector("#pattern-level");
+    const message = document.querySelector("#pattern-message");
+    const progress = document.querySelector("#pattern-progress");
+    const startButton = document.querySelector("#pattern-start");
+    const nextButton = document.querySelector("#pattern-next");
+    let levelIndex = 0;
+    let inputIndex = 0;
+    let acceptingInput = false;
+
+    const updateLevel = () => {
+      levelLabel.textContent = `STAGE ${String(levelIndex + 1).padStart(2, "0")} / ${String(patterns.length).padStart(2, "0")}`;
+      progress.textContent = "REPEAT THE SIGNALS";
+      message.textContent = "Ready when you are.";
+      nextButton.hidden = true;
+      startButton.disabled = false;
+    };
+
+    const showSequence = () => {
+      acceptingInput = false;
+      inputIndex = 0;
+      startButton.disabled = true;
+      nextButton.hidden = true;
+      message.textContent = "Watch the pattern…";
+      progress.textContent = `${patterns[levelIndex].length} SIGNALS`;
+      let sequenceIndex = 0;
+      const flashNext = () => {
+        if (sequenceIndex >= patterns[levelIndex].length) {
+          acceptingInput = true;
+          startButton.disabled = false;
+          message.textContent = "Your turn. Repeat the pattern.";
+          progress.textContent = `0 / ${patterns[levelIndex].length}`;
+          return;
+        }
+        const key = keys[patterns[levelIndex][sequenceIndex]];
+        key.classList.add("is-lit");
+        window.setTimeout(() => {
+          key.classList.remove("is-lit");
+          sequenceIndex += 1;
+          window.setTimeout(flashNext, 190);
+        }, 450);
+      };
+      window.setTimeout(flashNext, 300);
+    };
+
+    keys.forEach((key) => {
+      key.addEventListener("click", () => {
+        if (!acceptingInput) return;
+        key.classList.add("is-lit");
+        window.setTimeout(() => key.classList.remove("is-lit"), 170);
+        if (Number(key.dataset.patternTone) !== patterns[levelIndex][inputIndex]) {
+          acceptingInput = false;
+          message.textContent = "That sequence did not match. Watch it again and retry.";
+          progress.textContent = "TRY AGAIN";
+          startButton.disabled = false;
+          return;
+        }
+        inputIndex += 1;
+        progress.textContent = `${inputIndex} / ${patterns[levelIndex].length}`;
+        if (inputIndex === patterns[levelIndex].length) {
+          acceptingInput = false;
+          message.textContent = levelIndex === patterns.length - 1 ? "All six stages complete. Excellent recall." : "Correct pattern. Stage cleared.";
+          nextButton.textContent = levelIndex === patterns.length - 1 ? "Play again ↻" : "Next stage →";
+          nextButton.hidden = false;
+          startButton.disabled = true;
+        }
+      });
+    });
+
+    startButton.addEventListener("click", showSequence);
+    nextButton.addEventListener("click", () => {
+      levelIndex = levelIndex === patterns.length - 1 ? 0 : levelIndex + 1;
+      updateLevel();
+    });
+    updateLevel();
+  }
+
+  const evidenceFact = document.querySelector("#evidence-fact");
+  if (evidenceFact) {
+    const rounds = [
+      { fact: "InkForge is a LangGraph pipeline for planning, researching, and drafting technical articles.", claim: "InkForge uses LangGraph to plan, research, and draft technical articles.", supported: true },
+      { fact: "RAGGuard checks faithfulness, PII leakage, toxicity, p95 latency, and cost per query.", claim: "RAGGuard evaluates image-generation quality and GPU temperature.", supported: false },
+      { fact: "The gesture-to-text system recognizes 50+ hand gestures with 88% accuracy.", claim: "The gesture-to-text system reports 88% gesture-recognition accuracy.", supported: true },
+      { fact: "Darshan worked as an AI Engineer Intern at YBI Foundation from September 2025 to March 2026.", claim: "Darshan’s YBI Foundation internship ran from 2024 to 2025.", supported: false },
+      { fact: "The Weather AI Agent uses a Gemini ReAct agent with live weather lookups and optional web search.", claim: "The Weather AI Agent is built around a Gemini ReAct agent.", supported: true },
+      { fact: "The Expense Tracker MCP Agent uses a FastMCP backend and SQLite tools.", claim: "The Expense Tracker MCP Agent stores its tools in MongoDB.", supported: false },
+      { fact: "BenchWiki maps 80 evaluations by capability and status.", claim: "BenchWiki currently maps 80 evaluations.", supported: true },
+      { fact: "The Birth Weight Predictor is an end-to-end Flask and scikit-learn application.", claim: "The Birth Weight Predictor is a LangGraph multi-agent system.", supported: false },
+    ];
+    const claim = document.querySelector("#evidence-claim");
+    const levelLabel = document.querySelector("#evidence-level");
+    const scoreLabel = document.querySelector("#evidence-score");
+    const message = document.querySelector("#evidence-message");
+    const choiceButtons = [...document.querySelectorAll("[data-evidence-choice]")];
+    const nextButton = document.querySelector("#evidence-next");
+    let roundIndex = 0;
+    let score = 0;
+    let answered = false;
+
+    const showRound = () => {
+      const round = rounds[roundIndex];
+      evidenceFact.textContent = round.fact;
+      claim.textContent = round.claim;
+      levelLabel.textContent = `ROUND ${String(roundIndex + 1).padStart(2, "0")} / ${String(rounds.length).padStart(2, "0")}`;
+      scoreLabel.textContent = `SCORE ${String(score).padStart(2, "0")}`;
+      message.textContent = "Does the evidence support this claim?";
+      nextButton.hidden = true;
+      nextButton.textContent = roundIndex === rounds.length - 1 ? "See final score →" : "Next round →";
+      choiceButtons.forEach((button) => { button.disabled = false; });
+      answered = false;
+    };
+
+    choiceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        if (answered) return;
+        answered = true;
+        const choiceIsSupported = button.dataset.evidenceChoice === "supported";
+        const isCorrect = choiceIsSupported === rounds[roundIndex].supported;
+        if (isCorrect) score += 1;
+        scoreLabel.textContent = `SCORE ${String(score).padStart(2, "0")}`;
+        if (roundIndex === rounds.length - 1) {
+          message.textContent = `Final score: ${score} / ${rounds.length}. ${isCorrect ? "Correct." : "Round complete."} Play again to try for a higher score.`;
+          nextButton.textContent = "Play again ↻";
+        } else {
+          message.textContent = isCorrect
+            ? "Correct. The claim matches the portfolio evidence."
+            : `Not quite. This claim is ${rounds[roundIndex].supported ? "supported" : "not supported"} by the evidence.`;
+        }
+        choiceButtons.forEach((item) => { item.disabled = true; });
+        nextButton.hidden = false;
+      });
+    });
+
+    nextButton.addEventListener("click", () => {
+      if (roundIndex === rounds.length - 1) {
+        roundIndex = 0;
+        score = 0;
+      } else {
+        roundIndex += 1;
+      }
+      showRound();
+    });
+    showRound();
   }
 
 })();

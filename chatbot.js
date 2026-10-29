@@ -43,7 +43,7 @@
     }
     if (/project|built|build|created|portfolio work|selected work/.test(text)) {
       return {
-        answer: "Darshan’s projects include RAGGuard, a RAG evaluation workbench; InkForge, a multi-agent research and writing pipeline; an Expense Tracker MCP Agent; a gesture-to-text accessibility system; a Birth Weight Predictor; a Weather AI Agent; Customer Personality Segmentation; and BenchWiki, an LLM benchmark explorer.",
+        answer: "Darshan’s projects include InkForge, a multi-agent research and writing pipeline; an Expense Tracker MCP Agent; a Weather AI Agent; RAGGuard, a RAG evaluation workbench; BenchWiki, an LLM benchmark explorer; a gesture-to-text accessibility system; Customer Personality Segmentation; and a Birth Weight Predictor.",
         sources: ["Portfolio projects"],
       };
     }
