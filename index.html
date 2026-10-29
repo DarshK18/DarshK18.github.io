@@ -3,19 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#fefefe">
+    <meta name="theme-color" content="#f4f5f6">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; font-src 'self'; connect-src 'self' http://localhost:8001 http://127.0.0.1:8001; object-src 'none'; base-uri 'self'; form-action 'self'"
     >
     <meta
       name="description"
       content="Darshan Kedare builds practical AI applications across machine learning, generative AI, retrieval-augmented generation, and computer vision."
     >
     <title>Darshan Kedare — AI Engineer</title>
-    <link rel="stylesheet" href="styles.css?v=20261029-game1">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20261029-theme-fix1">
+    <script src="script.js?v=20261029-theme-fix1" defer></script>
+    <script src="chatbot-config.js" defer></script>
+    <script src="chatbot.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -25,7 +27,7 @@
       <nav class="primary-nav" aria-label="Main navigation">
         <a href="#work">Work</a>
         <a href="#play">Play</a>
-        <a href="#experience">Experience</a>
+        <a href="#experience">Internship</a>
         <a href="#focus">Focus</a>
         <a href="#courses">Courses &amp; Certificates</a>
         <a href="#contact">Contact</a>
@@ -59,6 +61,7 @@
           <p class="hero-description">I build practical AI systems, including a multi-agent research pipeline at YBI Foundation and tools for grounded, reliable AI.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+            <a class="button button-resume" href="resume/">View my resume <span aria-hidden="true">↗</span></a>
             <a class="text-link" href="mailto:darshankeadre1815@gmail.com">Get in touch <span aria-hidden="true">↗</span></a>
           </div>
         </div>
@@ -87,17 +90,18 @@
       <section class="experience-section section-shell" id="experience" aria-labelledby="experience-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow"><span class="eyebrow-rule"></span> EXPERIENCE</p>
-            <h2 id="experience-title">Applied AI, in practice<span class="accent-period">.</span></h2>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> INTERNSHIP / PROFESSIONAL EXPERIENCE</p>
+            <h2 id="experience-title">Internship experience<span class="accent-period">.</span></h2>
           </div>
         </div>
         <article class="experience-card">
           <div class="experience-meta">
             <span class="experience-number">01</span>
-            <span class="experience-role">AI ENGINEER INTERN</span>
+            <span class="experience-kind">INTERNSHIP</span>
           </div>
           <div class="experience-details">
-            <h3>YBI Foundation</h3>
+            <h3>AI Engineer Intern</h3>
+            <p class="experience-company">YBI Foundation</p>
             <p>Architected a five-node LangGraph pipeline to plan, research, and generate technical blog posts across research modes. Integrated Tavily Search for concurrent retrieval with ISO date-filtered evidence deduplication, and built a five-tab Streamlit dashboard with live node streaming and Gemini 1.5 Flash multimodal processing.</p>
             <a class="text-link" href="https://github.com/DarshK18/InkForge" target="_blank" rel="noreferrer">Explore InkForge <span aria-hidden="true">↗</span>
             </a>
@@ -109,17 +113,27 @@
       <section class="work-section section-shell" id="work" aria-labelledby="work-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow"><span class="eyebrow-rule"></span> SELECTED PROJECTS</p>
-            <h2 id="work-title">Work<span class="accent-period">.</span></h2>
+            <p class="eyebrow"><span class="eyebrow-rule"></span> PROJECTS / SELECTED WORK</p>
+            <h2 id="work-title">Projects<span class="accent-period">.</span></h2>
           </div>
           <a class="text-link section-link" href="https://github.com/DarshK18?tab=repositories" target="_blank" rel="noreferrer">
             All repositories <span aria-hidden="true">↗</span>
           </a>
         </div>
+        <div class="project-toolbar">
+          <p><span id="project-count">08</span> PROJECTS</p>
+          <div class="project-filters" role="group" aria-label="Filter projects">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="api" aria-pressed="false">API</button>
+            <button type="button" data-filter="ai" aria-pressed="false">AI systems</button>
+            <button type="button" data-filter="vision" aria-pressed="false">Vision</button>
+            <button type="button" data-filter="data" aria-pressed="false">Data &amp; research</button>
+          </div>
+        </div>
         <div class="project-grid">
-          <article class="project-card">
+          <article class="project-card" data-categories="ai data">
             <div class="project-topline">
-              <span class="project-number">01 / AI SYSTEMS</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="project-number">01 / AI SYSTEMS</span></div>
               <a class="project-open" href="https://github.com/DarshK18/Ragguard-deepeval-workbench" target="_blank" rel="noreferrer" aria-label="Open RAG Evaluation Workbench on GitHub">↗</a>
             </div>
             <div class="project-visual visual-rag" aria-hidden="true">
@@ -136,9 +150,9 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="ai">
             <div class="project-topline">
-              <span class="project-number">02 / GENERATIVE AI</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="project-number">02 / GENERATIVE AI</span></div>
               <a class="project-open" href="https://github.com/DarshK18/InkForge" target="_blank" rel="noreferrer" aria-label="Open InkForge on GitHub">↗</a>
             </div>
             <div class="project-visual visual-ink" aria-hidden="true">
@@ -154,9 +168,9 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="vision api">
             <div class="project-topline">
-              <span class="project-number">03 / COMPUTER VISION</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="card-type card-type-api">API</span><span class="project-number">03 / COMPUTER VISION</span></div>
               <a class="project-open" href="https://github.com/DarshK18/Sign-Language-Recognition-Translation-Web-App" target="_blank" rel="noreferrer" aria-label="Open Sign Language Recognition and Translation on GitHub">↗</a>
             </div>
             <div class="project-visual visual-sign" aria-hidden="true">
@@ -171,9 +185,9 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="ai">
             <div class="project-topline">
-              <span class="project-number">04 / AGENT WORKFLOWS</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="project-number">04 / AGENT WORKFLOWS</span></div>
               <a class="project-open" href="https://github.com/DarshK18/Manim-and-Expense-Tracker-Mcp" target="_blank" rel="noreferrer" aria-label="Open MCP Expense Chatbot on GitHub">↗</a>
             </div>
             <div class="project-visual visual-mcp" aria-hidden="true">
@@ -190,9 +204,9 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="api">
             <div class="project-topline">
-              <span class="project-number">05 / MACHINE LEARNING</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="card-type card-type-api">API</span><span class="project-number">05 / MACHINE LEARNING</span></div>
               <a class="project-open" href="https://github.com/DarshK18/Birth-Weight-Predictor" target="_blank" rel="noreferrer" aria-label="Open Birth Weight Predictor on GitHub">↗</a>
             </div>
             <div class="project-visual visual-birth" aria-hidden="true">
@@ -208,9 +222,9 @@
             <a class="project-demo" href="https://birth-weight-predictor-dt90.onrender.com" target="_blank" rel="noreferrer">Live demo <span aria-hidden="true">↗</span></a>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="ai api">
             <div class="project-topline">
-              <span class="project-number">06 / GENERATIVE AI</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="card-type card-type-api">API</span><span class="project-number">06 / GENERATIVE AI</span></div>
               <a class="project-open" href="https://github.com/DarshK18/Weather-Ai" target="_blank" rel="noreferrer" aria-label="Open Weather AI Agent on GitHub">↗</a>
             </div>
             <div class="project-visual visual-weather" aria-hidden="true">
@@ -225,9 +239,9 @@
             </div>
           </article>
 
-          <article class="project-card">
+          <article class="project-card" data-categories="data api">
             <div class="project-topline">
-              <span class="project-number">07 / DATA SCIENCE</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="card-type card-type-api">API</span><span class="project-number">07 / DATA SCIENCE</span></div>
               <a class="project-open" href="https://github.com/DarshK18/DarshK18-Customer-Categorizer" target="_blank" rel="noreferrer" aria-label="Open Customer Personality Segmentation on GitHub">↗</a>
             </div>
             <div class="project-visual visual-segmentation" aria-hidden="true">
@@ -241,9 +255,9 @@
             <div class="tag-list" aria-label="Technologies">
               <span>PYTHON</span><span>MACHINE LEARNING</span><span>FASTAPI</span>
             </div>
-          </article>          <article class="project-card">
+          </article>          <article class="project-card" data-categories="data">
             <div class="project-topline">
-              <span class="project-number">08 / BENCHMARKS</span>
+              <div class="project-identifiers"><span class="card-type">PROJECT</span><span class="project-number">08 / BENCHMARKS</span></div>
               <a class="project-open" href="https://benchwiki.vercel.app/" target="_blank" rel="noreferrer" aria-label="Open BenchWiki">↗</a>
             </div>
             <div class="project-visual visual-benchwiki" aria-hidden="true">
@@ -363,72 +377,81 @@
             <span>∴</span>
           </span>
         </div>
+        <div class="credential-toolbar">
+          <p><span id="credential-count">11</span> DOCUMENTS</p>
+          <div class="credential-filters" role="group" aria-label="Filter credentials">
+            <button type="button" data-credential-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-credential-filter="certificate" aria-pressed="false">Certificates</button>
+            <button type="button" data-credential-filter="curriculum" aria-pressed="false">Curriculum</button>
+            <button type="button" data-credential-filter="workshop" aria-pressed="false">Workshop</button>
+          </div>
+        </div>
         <div class="credential-list">
-          <a class="credential-item" href="certificate/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20240428-8-gqgijd.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">01</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/AWS_Academy_Graduate___AWS_Academy_Cloud_Foundations_Badge20240428-8-gqgijd.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">01</span></span>
+            <span class="credential-mark" aria-hidden="true">◉</span>
             <span class="credential-name">AWS Academy Cloud Foundations</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/AWS%20ML%20Engineer%20Associate%20CurriculumOverview.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">02</span>
+          <a class="credential-item" data-kind="curriculum" href="certificate/AWS%20ML%20Engineer%20Associate%20CurriculumOverview.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CURRICULUM</span><span class="credential-number">02</span></span>
+            <span class="credential-mark" aria-hidden="true">⌘</span>
             <span class="credential-name">AWS ML Engineer Associate — Curriculum Overview</span>
-            <span class="credential-type">CURRICULUM</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Certificate%20of%20Completion%20Al%20Fluency%20Framework%20%26%20Foundations.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">03</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Certificate%20of%20Completion%20Al%20Fluency%20Framework%20%26%20Foundations.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">03</span></span>
+            <span class="credential-mark" aria-hidden="true">∴</span>
             <span class="credential-name">AI Fluency Framework &amp; Foundations</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Claude%20AI%20From%20Basics%20to%20Build.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">04</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Claude%20AI%20From%20Basics%20to%20Build.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">04</span></span>
+            <span class="credential-mark" aria-hidden="true">✧</span>
             <span class="credential-name">Claude AI: From Basics to Build</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Data%20Analytics%20Job%20Simulation.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">05</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Data%20Analytics%20Job%20Simulation.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">05</span></span>
+            <span class="credential-mark" aria-hidden="true">▥</span>
             <span class="credential-name">Data Analytics Job Simulation</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Data%20Science%20with%20Gen%20Ai.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">06</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Data%20Science%20with%20Gen%20Ai.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">06</span></span>
+            <span class="credential-mark" aria-hidden="true">∿</span>
             <span class="credential-name">Data Science with Generative AI</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Generative%20AI%20for%20All.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">07</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Generative%20AI%20for%20All.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">07</span></span>
+            <span class="credential-mark" aria-hidden="true">✦</span>
             <span class="credential-name">Generative AI for All</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/Introduction%20to%20Generative%20AI%20Studio.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">08</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/Introduction%20to%20Generative%20AI%20Studio.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">08</span></span>
+            <span class="credential-mark" aria-hidden="true">⌑</span>
             <span class="credential-name">Introduction to Generative AI Studio</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/International%20Student%20Workshop%202024%20on%20Data%20Science%20using%20Python%20by%20Brainovision.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">09</span>
+          <a class="credential-item" data-kind="workshop" href="certificate/International%20Student%20Workshop%202024%20on%20Data%20Science%20using%20Python%20by%20Brainovision.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">WORKSHOP</span><span class="credential-number">09</span></span>
+            <span class="credential-mark" aria-hidden="true">⌨</span>
             <span class="credential-name">Data Science using Python — Student Workshop 2024</span>
-            <span class="credential-type">WORKSHOP</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/python_basic%20certificate.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">10</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/python_basic%20certificate.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">10</span></span>
+            <span class="credential-mark" aria-hidden="true">&lt;&gt;</span>
             <span class="credential-name">Python Basic</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
-          <a class="credential-item" href="certificate/simplelern%20intoduction%20to%20ai.pdf" target="_blank" rel="noreferrer">
-            <span class="credential-number">11</span>
+          <a class="credential-item" data-kind="certificate" href="certificate/simplelern%20intoduction%20to%20ai.pdf" target="_blank" rel="noreferrer">
+            <span class="credential-top"><span class="credential-type">CERTIFICATE</span><span class="credential-number">11</span></span>
+            <span class="credential-mark" aria-hidden="true">⊙</span>
             <span class="credential-name">Introduction to AI</span>
-            <span class="credential-type">CERTIFICATE</span>
-            <span class="credential-arrow" aria-hidden="true">↗</span>
+            <span class="credential-bottom"><span>OPEN DOCUMENT</span><span class="credential-arrow" aria-hidden="true">↗</span></span>
           </a>
         </div>
       </section>
@@ -455,7 +478,38 @@
         <time id="live-clock" class="live-clock" aria-label="Current local time">--:--:--</time>
       </div>
       <span class="footer-copyright">© <span id="current-year"></span> DARSHAN KEDARE</span>
-      <a class="footer-copyright footer-resume" href="https://drive.google.com/file/d/1gMlap03apy2HqlSNhYHlBZNNj87-ZtRo/view?usp=sharing" target="_blank" rel="noreferrer">VIEW RESUME <span aria-hidden="true">↗</span></a>
+      <a class="footer-copyright footer-resume" href="resume/">VIEW RESUME <span aria-hidden="true">↗</span></a>
     </footer>
+
+    <aside class="chat-widget" id="chat-widget" aria-label="Portfolio assistant">
+      <section class="chat-panel" id="chat-panel" role="dialog" aria-modal="false" aria-labelledby="chat-title" hidden>
+        <header class="chat-panel-header">
+          <div class="chat-identity">
+            <span class="chat-avatar" aria-hidden="true">DK</span>
+            <div><h2 id="chat-title">Ask about Darshan</h2><span class="chat-presence"><i></i> PORTFOLIO ASSISTANT</span></div>
+          </div>
+          <button class="chat-close" id="chat-close" type="button" aria-label="Close chat">×</button>
+        </header>
+        <div class="chat-messages" id="chat-messages" aria-live="polite" aria-relevant="additions text">
+          <div class="chat-message chat-message-assistant">
+            <p>Hi! Ask me about Darshan’s projects, internship, skills, or education.</p>
+          </div>
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions" aria-label="Suggested questions">
+          <button type="button">What projects has Darshan built?</button>
+          <button type="button">Tell me about his internship</button>
+          <button type="button">What tools does he use?</button>
+        </div>
+        <form class="chat-form" id="chat-form">
+          <label class="visually-hidden" for="chat-input">Ask a question about Darshan</label>
+          <textarea id="chat-input" name="question" rows="2" maxlength="500" placeholder="Ask a question…" required></textarea>
+          <button id="chat-send" type="submit" aria-label="Send question"><span aria-hidden="true">↑</span></button>
+        </form>
+        <p class="chat-footnote">ANSWERS GROUNDED IN PORTFOLIO FACTS</p>
+      </section>
+      <button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="chat-panel">
+        <span class="chat-launcher-icon" aria-hidden="true">✳</span><span>Ask about me</span><span class="chat-launcher-arrow" aria-hidden="true">↗</span>
+      </button>
+    </aside>
   </body>
 </html>

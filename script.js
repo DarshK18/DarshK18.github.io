@@ -6,6 +6,38 @@
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const root = document.documentElement;
 
+  const applyTheme = (theme, save = false) => {
+    const isDark = theme === "dark";
+    root.dataset.theme = isDark ? "dark" : "light";
+    themeIcon.textContent = isDark ? "☼" : "☾";
+    const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+    themeToggle.setAttribute("aria-label", label);
+    themeToggle.title = label;
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    if (themeColor) themeColor.content = isDark ? "#111113" : "#f4f5f6";
+    if (save) {
+      try {
+        window.localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
+      } catch {
+        // The selected theme still applies for this page even if storage is unavailable.
+      }
+    }
+  };
+
+  if (themeToggle && themeIcon) {
+    let savedTheme = null;
+    try {
+      savedTheme = window.localStorage.getItem("portfolio-theme");
+    } catch {
+      // Use the system preference when browser storage is unavailable.
+    }
+    const systemPrefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches ?? false;
+    applyTheme(savedTheme === "dark" || (!savedTheme && systemPrefersDark) ? "dark" : "light");
+    themeToggle.addEventListener("click", () => {
+      applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+  }
+
   if (year) {
     year.textContent = String(new Date().getFullYear());
   }
@@ -21,6 +53,44 @@
     };
     updateClock();
     window.setInterval(updateClock, 1000);
+  }
+
+  const projectCards = [...document.querySelectorAll(".project-card[data-categories]")];
+  const projectFilters = document.querySelectorAll(".project-filters [data-filter]");
+  const projectCount = document.querySelector("#project-count");
+  if (projectCards.length && projectFilters.length) {
+    projectFilters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.filter;
+        let visibleCount = 0;
+        projectFilters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        projectCards.forEach((card) => {
+          const matches = filter === "all" || card.dataset.categories.split(/\s+/).includes(filter);
+          card.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+        if (projectCount) projectCount.textContent = String(visibleCount).padStart(2, "0");
+      });
+    });
+  }
+
+  const credentialCards = [...document.querySelectorAll(".credential-item[data-kind]")];
+  const credentialFilters = document.querySelectorAll(".credential-filters [data-credential-filter]");
+  const credentialCount = document.querySelector("#credential-count");
+  if (credentialCards.length && credentialFilters.length) {
+    credentialFilters.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.dataset.credentialFilter;
+        let visibleCount = 0;
+        credentialFilters.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        credentialCards.forEach((card) => {
+          const matches = filter === "all" || card.dataset.kind === filter;
+          card.hidden = !matches;
+          if (matches) visibleCount += 1;
+        });
+        if (credentialCount) credentialCount.textContent = String(visibleCount).padStart(2, "0");
+      });
+    });
   }
 
   const game = document.querySelector("#signal-game");
@@ -143,27 +213,4 @@
     render();
   }
 
-  if (themeToggle && themeIcon) {
-    const applyTheme = (theme, save = false) => {
-      const isDark = theme === "dark";
-      root.dataset.theme = isDark ? "dark" : "light";
-      themeIcon.textContent = isDark ? "☼" : "☾";
-      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
-      themeToggle.setAttribute("aria-label", label);
-      themeToggle.title = label;
-      if (themeColor) {
-        themeColor.content = isDark ? "#111113" : "#fefefe";
-      }
-      if (save) {
-        window.localStorage.setItem("portfolio-theme", isDark ? "dark" : "light");
-      }
-    };
-
-    const savedTheme = window.localStorage.getItem("portfolio-theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    applyTheme(savedTheme === "dark" || (!savedTheme && systemPrefersDark) ? "dark" : "light");
-    themeToggle.addEventListener("click", () => {
-      applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
-    });
-  }
 })();
